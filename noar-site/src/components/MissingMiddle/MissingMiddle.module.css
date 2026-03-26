@@ -1,0 +1,130 @@
+.section {
+  padding: 180px 12% 100px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.8vw, 44px);
+  font-weight: 400;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2;
+  color: var(--bark-light);
+}
+
+.imageWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  background: #FAFAF8;
+  border: 1px solid var(--border-earth);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  padding: 48px 40px;
+  transition: box-shadow var(--duration-hover) var(--ease-premium);
+}
+
+.imageFrame:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Subtle amber top-border accent */
+.imageFrame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--amber) 30%, var(--amber-bright) 60%, transparent 100%);
+  opacity: 0.6;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.caption {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bark-light);
+  opacity: 0.5;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .imageFrame {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 6% 80px;
+  }
+
+  .inner {
+    margin-bottom: 48px;
+  }
+
+  .imageFrame {
+    padding: 24px 16px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 80px 5% 64px;
+  }
+
+  .imageFrame {
+    padding: 16px 10px;
+    border-radius: 2px;
+  }
+
+  .caption {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+}

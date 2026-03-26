@@ -1,0 +1,76 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.mark {
+  display: block;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+  text-transform: uppercase;
+}
+
+/* Variants */
+.light .wordmark {
+  color: var(--cream);
+}
+
+.dark .wordmark {
+  color: var(--bark);
+}
+
+/* Sizes */
+.sm .mark {
+  width: 44px;
+  height: 44px;
+}
+
+.sm .wordmark {
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+}
+
+.sm {
+  gap: 6px;
+}
+
+.lg .mark {
+  width: 200px;
+  height: auto;
+}
+
+.lg .wordmark {
+  font-size: 48px;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
+}
+
+@media (max-width: 768px) {
+  .lg .mark {
+    width: 120px;
+    height: auto;
+  }
+
+  .lg .wordmark {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lg .mark {
+    width: 100px;
+    height: auto;
+  }
+
+  .lg .wordmark {
+    font-size: 26px;
+  }
+}

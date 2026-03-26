@@ -1,0 +1,283 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--forest);
+}
+
+/* Video background */
+.videoBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.videoBg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  filter: saturate(0.5) contrast(1.05);
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 28, 20, 0.7) 0%,
+    rgba(15, 41, 32, 0.45) 40%,
+    rgba(15, 41, 32, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 60% 25%, rgba(45, 106, 79, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 25% 75%, rgba(200, 165, 90, 0.04) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 80%, rgba(64, 145, 108, 0.05) 0%, transparent 40%);
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%2352B788' stroke-width='.4'/%3E%3C/svg%3E");
+}
+
+/* Amber glow behind the logo mark */
+.glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 165, 90, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Noise texture overlay for tactile depth */
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise-texture);
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.heroMark {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.markImg {
+  width: 224px;
+  height: 224px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 80px rgba(200, 165, 90, 0.12));
+}
+
+.typeBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 48px;
+  gap: 18px;
+}
+
+.typeIntro {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+}
+
+.typeFrame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  padding: 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.typeDynamic {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 92px;
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  line-height: 1.16;
+  color: rgba(255, 255, 255, 0.94);
+  text-align: center;
+  margin: 0;
+  padding: 0 8px;
+  text-wrap: balance;
+  text-transform: uppercase;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+}
+
+.typeSupport {
+  max-width: 760px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.chevron {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  color: var(--moss);
+  opacity: 0.35;
+  display: flex;
+  transition: opacity 0.3s;
+  animation: bobChevron 2.4s ease-in-out infinite;
+}
+
+.chevron:hover {
+  opacity: 0.7;
+}
+
+@keyframes bobChevron {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .content {
+    padding-top: 110px;
+  }
+
+  .markImg {
+    width: 168px;
+    height: 168px;
+  }
+
+  .heroMark {
+    margin-bottom: 32px;
+  }
+
+  .typeBlock {
+    padding: 28px 16px;
+    gap: 16px;
+  }
+
+  .typeIntro {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+
+  .typeFrame {
+    min-height: 108px;
+    padding: 0 18px;
+  }
+
+  .typeDynamic {
+    min-height: 84px;
+    font-size: 29px;
+    letter-spacing: 0.05em;
+  }
+
+  .typeSupport {
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.16em;
+  }
+
+  .chevron {
+    bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .markImg {
+    width: 128px;
+    height: 128px;
+  }
+
+  .heroMark {
+    margin-bottom: 24px;
+  }
+
+  .typeBlock {
+    padding: 16px 8px;
+  }
+
+  .typeFrame {
+    min-height: 80px;
+    padding: 0 4px;
+  }
+
+  .typeDynamic {
+    min-height: 64px;
+    font-size: 20px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+  }
+
+  .typeSupport {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 0 4px;
+    text-wrap: balance;
+  }
+
+  .chevron {
+    bottom: 20px;
+  }
+}
+
+/* Reduce parallax/blur animations for motion-sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    animation: none;
+  }
+}

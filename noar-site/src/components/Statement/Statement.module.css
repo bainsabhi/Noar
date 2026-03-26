@@ -1,0 +1,46 @@
+.statement {
+  padding: 180px 12%;
+  text-align: center;
+  background: linear-gradient(180deg, var(--cream) 0%, #F0EBE1 100%);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 3.2vw, 46px);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--forest-mid);
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.location {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+/* Thin amber divider above location */
+.divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 165, 90, 0.35), transparent);
+  margin: 28px auto 20px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .statement { padding: 100px 6%; }
+  .divider { margin: 20px auto 16px; }
+}
+
+@media (max-width: 480px) {
+  .statement { padding: 80px 5%; }
+  .heading { font-size: 22px; }
+  .location { font-size: 11px; letter-spacing: 0.3em; }
+  .divider { width: 60px; margin: 16px auto 14px; }
+}

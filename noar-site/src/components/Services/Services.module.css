@@ -1,0 +1,225 @@
+.services {
+  padding: 180px 12%;
+  text-align: center;
+  background: linear-gradient(135deg, var(--forest) 0%, #153626 50%, var(--forest) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Noise texture for tactile dark surface */
+.services::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise-texture);
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 48px 36px;
+  text-align: left;
+  transition: all var(--duration-hover) var(--ease-premium);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--forest-light), var(--moss-light));
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 4px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(200, 165, 90, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-3px);
+}
+
+/* Thin-stroke icon above service title */
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 20px;
+  color: var(--amber);
+  opacity: 0.85;
+  transition: opacity var(--duration-hover) var(--ease-premium);
+}
+
+.card:hover .cardIcon {
+  opacity: 1;
+}
+
+.card h3 {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 14px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* CTA Card */
+.ctaCard {
+  background: var(--forest-mid);
+  backdrop-filter: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-color: transparent;
+}
+
+.ctaCard:hover {
+  background: var(--forest);
+  border-color: transparent;
+  box-shadow: 0 8px 40px rgba(15, 41, 32, 0.15);
+}
+
+.ctaCard::before {
+  display: none;
+}
+
+.ctaCard h3 {
+  color: var(--amber);
+  margin-bottom: 20px;
+  font-size: 11px;
+}
+
+/* Hide icon in CTA card */
+.ctaCard .cardIcon {
+  display: none;
+}
+
+.ctaBtn {
+  padding: 12px 28px !important;
+  font-size: 10px !important;
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 100px 6%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    padding: 36px 28px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 64px 5%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 32px 22px;
+  }
+
+  .card h3 {
+    font-size: 11px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
+
+/* Disable hover animations on touch devices */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card:hover::before {
+    transform: scaleX(0);
+  }
+
+  .card:hover::after {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card::before {
+    transition: none;
+  }
+}

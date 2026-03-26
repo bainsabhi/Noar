@@ -1,0 +1,264 @@
+.properties {
+  padding: 180px 12%;
+  background: linear-gradient(180deg, var(--cream) 0%, #F0EBE1 100%);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.8vw, 46px);
+  letter-spacing: -0.01em;
+  color: var(--forest);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.titleAccent {
+  width: 48px;
+  height: 2px;
+  background: var(--amber);
+  margin-bottom: 64px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--duration-hover) var(--ease-premium);
+  box-shadow: var(--shadow-card);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.img {
+  aspect-ratio: 3 / 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 41, 32, 0.75) 0%, transparent 55%);
+}
+
+.img1 {
+  background: linear-gradient(135deg, #0f2920, #2D6A4F, #1B3A2D);
+}
+
+.img2 {
+  background: linear-gradient(135deg, #1B3A2D, #40916C, #0f2920);
+}
+
+.img3 {
+  background: linear-gradient(135deg, #153626, #2D6A4F, #1B3A2D);
+}
+
+.geoPattern {
+  display: none;
+}
+
+.silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 65%;
+  background: linear-gradient(to top, rgba(15, 41, 32, 0.15), transparent);
+}
+
+.silhouette1 {
+  clip-path: polygon(
+    10% 100%, 10% 40%, 15% 40%, 15% 25%, 25% 25%, 25% 35%, 30% 35%, 30% 15%,
+    45% 15%, 45% 30%, 50% 30%, 50% 10%, 55% 10%, 55% 30%, 60% 30%, 60% 20%,
+    70% 20%, 70% 35%, 75% 35%, 75% 45%, 85% 45%, 85% 30%, 90% 30%, 90% 100%
+  );
+}
+
+.silhouette2 {
+  clip-path: polygon(
+    5% 100%, 5% 50%, 20% 50%, 20% 20%, 35% 20%, 35% 40%, 45% 40%, 45% 10%,
+    60% 10%, 60% 35%, 70% 35%, 70% 25%, 80% 25%, 80% 45%, 95% 45%, 95% 100%
+  );
+}
+
+.silhouette3 {
+  clip-path: polygon(
+    15% 100%, 15% 35%, 25% 35%, 25% 20%, 40% 20%, 40% 5%, 55% 5%, 55% 25%,
+    65% 25%, 65% 40%, 75% 40%, 75% 30%, 85% 30%, 85% 100%
+  );
+}
+
+.accent {
+  display: none;
+}
+
+.info {
+  padding: 24px 4px;
+}
+
+.info h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--forest);
+  margin-bottom: 6px;
+}
+
+.location {
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .properties {
+    padding: 80px 6%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .img {
+    height: 240px;
+  }
+
+  .titleAccent {
+    margin-bottom: 40px;
+  }
+
+  .viewAllLink {
+    min-height: 48px;
+  }
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.coverImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s var(--ease-premium), filter 0.5s var(--ease-premium);
+  filter: sepia(0.08) contrast(1.03);
+}
+
+.card:hover .coverImg {
+  transform: scale(1.03);
+  filter: sepia(0) contrast(1);
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 41, 32, 0.75) 0%, transparent 55%);
+  z-index: 1;
+}
+
+.propertyType {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+}
+
+.viewAll {
+  text-align: center;
+  margin-top: 56px;
+}
+
+.viewAllLink {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--forest);
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  padding: 14px 36px;
+  border: 1px solid var(--forest);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.viewAllLink:hover {
+  background: var(--forest);
+  color: var(--white);
+}
+
+@media (max-width: 480px) {
+  .properties {
+    padding: 64px 5%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .img {
+    height: 200px;
+  }
+
+  .info h4 {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .location {
+    font-size: 11px;
+  }
+
+  .viewAllLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Disable hover lift on touch devices */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coverImg {
+    transition: none;
+  }
+}

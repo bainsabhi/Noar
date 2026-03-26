@@ -1,0 +1,32 @@
+.culture {
+  padding: 180px 12%;
+  text-align: center;
+  background: linear-gradient(180deg, var(--cream) 0%, #F0EBE1 100%);
+}
+
+.description {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2;
+  color: var(--bark-light);
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .culture { padding: 100px 6%; }
+  .description { font-size: 15px; margin-bottom: 36px; }
+  .buttons { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .culture { padding: 64px 5%; }
+  .description { font-size: 15px; }
+}

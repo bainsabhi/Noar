@@ -1,0 +1,195 @@
+.split {
+  padding: 180px 12%;
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 80px;
+  align-items: center;
+  background: var(--white);
+}
+
+.text p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2;
+  color: var(--bark-light);
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 40px;
+  padding: 0;
+  list-style: none;
+  max-width: 560px;
+}
+
+.list li {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--bark);
+  padding: 0 0 0 26px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--moss);
+  opacity: 0.7;
+}
+
+.visual {
+  position: relative;
+  height: 480px;
+}
+
+.visualImg {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  width: 85%;
+  height: 90%;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: var(--shadow-card);
+}
+
+.visualImg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(9, 25, 19, 0.08), rgba(9, 25, 19, 0.22)),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 L40 0 L80 40 L40 80Z' fill='none' stroke='rgba(254,253,251,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.visualImg::after {
+  content: '';
+  position: absolute;
+  bottom: 18%;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: rgba(200, 165, 90, 0.2);
+  z-index: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+/* Glass accent replacing diamond */
+.accent1 {
+  position: absolute;
+  top: -8px;
+  right: 18px;
+  width: 56px;
+  height: 56px;
+  background: rgba(200, 165, 90, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 165, 90, 0.25);
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.accent2 {
+  position: absolute;
+  top: 44px;
+  right: -4px;
+  width: 32px;
+  height: 32px;
+  background: rgba(82, 183, 136, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(82, 183, 136, 0.15);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .split {
+    padding: 100px 6%;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .visual {
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .visualImg {
+    right: 20px;
+  }
+
+  .text p {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  /* Prevent accent shapes from clipping outside container */
+  .accent1 {
+    right: 24px;
+    top: -4px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .accent2 {
+    right: 4px;
+    top: 36px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .split {
+    padding: 64px 5%;
+    gap: 28px;
+  }
+
+  .visual {
+    height: 240px;
+  }
+
+  .visualImg {
+    right: 10px;
+    width: 90%;
+    height: 85%;
+  }
+
+  .text p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .list li {
+    font-size: 15px;
+  }
+
+  .accent1 {
+    display: none;
+  }
+
+  .accent2 {
+    display: none;
+  }
+}

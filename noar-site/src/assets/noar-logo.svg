@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100"> >
+    <!-- N -->
+    <path d="M0 88V14h12l38 52V14h11v74H50L12 36v52H0z" fill="#3D2B1F"/>
+    <!-- O as Arch with Sunburst -->
+    <g transform="translate(72,0)">
+      <!-- Sunburst rays -->
+      <g transform="translate(32,18)">
+        <line x1="0" y1="0" x2="0" y2="-16" stroke="#D4A017" stroke-width="2.2"/>
+        <line x1="0" y1="0" x2="8" y2="-14" stroke="#D4A017" stroke-width="1.8"/>
+        <line x1="0" y1="0" x2="-8" y2="-14" stroke="#D4A017" stroke-width="1.8"/>
+        <line x1="0" y1="0" x2="14" y2="-8" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="0" y1="0" x2="-14" y2="-8" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="0" y1="0" x2="15.5" y2="-2" stroke="#D4A017" stroke-width="1.2"/>
+        <line x1="0" y1="0" x2="-15.5" y2="-2" stroke="#D4A017" stroke-width="1.2"/>
+        <line x1="0" y1="0" x2="4" y2="-15.5" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="0" y1="0" x2="-4" y2="-15.5" stroke="#D4A017" stroke-width="1.5"/>
+        <line x1="0" y1="0" x2="11" y2="-11" stroke="#D4A017" stroke-width="1.4"/>
+        <line x1="0" y1="0" x2="-11" y2="-11" stroke="#D4A017" stroke-width="1.4"/>
+        <!-- Sun half-circle -->
+        <circle cx="0" cy="0" r="7" fill="#D4A017"/>
+        <rect x="-8" y="0" width="16" height="8" fill="#3D2B1F" fill-opacity="0"/>
+      </g>
+      <!-- Arch shape (the O) -->
+      <path d="M10 88V42c0-18 10-28 22-28s22 10 22 28v46h-11V44c0-12-4-20-11-20s-11 8-11 20v44H10z" fill="#B85C38"/>
+    </g>
+    <!-- A -->
+    <path d="M142 88L170 14h13l28 74h-13l-7-20h-30l-7 20h-12zm19-30h24l-12-36-12 36z" fill="#3D2B1F"/>
+    <!-- R -->
+    <path d="M222 88V14h30c16 0 25 8 25 22 0 10-6 18-15 21l18 31h-14l-16-29h-17v29h-11zm11-39h18c9 0 14-5 14-13s-5-12-14-12h-18v25z" fill="#3D2B1F"/>
+  </svg>

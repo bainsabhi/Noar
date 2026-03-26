@@ -1,0 +1,89 @@
+.banner {
+  padding: 88px 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, var(--forest) 0%, #153626 50%, var(--forest) 100%);
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Noise texture on dark banner */
+.banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise-texture);
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 165, 90, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.banner h3 {
+  font-family: var(--font-label);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 660px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 56px 6%;
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .banner h3 {
+    font-size: 18px;
+  }
+
+  .banner::before {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 48px 5%;
+  }
+
+  .banner h3 {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+/* Ensure the CTA button inside banner has adequate touch target */
+@media (max-width: 768px) {
+  .banner > a,
+  .banner > button {
+    min-height: 48px;
+  }
+}

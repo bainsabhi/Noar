@@ -1,0 +1,91 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--duration-hover) var(--ease-premium);
+  border: 1px solid transparent;
+  background: transparent;
+  text-decoration: none;
+}
+
+.outline {
+  border-color: var(--forest);
+  color: var(--forest);
+}
+
+.outline:hover {
+  background: var(--forest);
+  color: var(--white);
+  border-color: var(--forest);
+  letter-spacing: 0.22em;
+}
+
+.outline-light {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.outline-light:hover {
+  background: var(--amber);
+  color: var(--forest);
+  border-color: var(--amber);
+  letter-spacing: 0.22em;
+}
+
+.filled {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--white);
+}
+
+.filled:hover {
+  background: var(--forest-mid);
+  border-color: var(--forest-mid);
+  letter-spacing: 0.22em;
+}
+
+.amber {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--forest);
+}
+
+.amber:hover {
+  background: var(--amber-dark);
+  border-color: var(--amber-dark);
+  letter-spacing: 0.22em;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    min-height: 48px;
+    padding: 14px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 14px 28px;
+    font-size: 11px;
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

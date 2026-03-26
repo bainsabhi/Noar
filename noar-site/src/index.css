@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Forest greens */
+  --forest: #0f2920;
+  --forest-mid: #1B3A2D;
+  --forest-light: #2D6A4F;
+  --moss: #40916C;
+  --moss-light: #52B788;
+  --sage: #74C69D;
+
+  /* Golds */
+  --amber: #C8A55A;
+  --amber-bright: #DFBE6F;
+  --amber-dark: #A8893E;
+
+  /* Neutrals */
+  --bark: #1a2e24;
+  --bark-light: #375545;
+  --cream: #F5F2EC;
+  --cream-warm: #EDE8DF;
+  --white: #FEFDFB;
+  --border-earth: rgba(27, 58, 45, 0.08);
+
+  /* Glass tokens */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 20px;
+  --glass-bg-light: rgba(255, 255, 255, 0.55);
+  --glass-border-light: rgba(255, 255, 255, 0.7);
+  --glass-blur-light: 16px;
+
+  /* Aliases */
+  --terra: var(--amber);
+  --terra-light: var(--amber-bright);
+  --copper: var(--amber);
+
+  /* Fonts */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', Helvetica, sans-serif;
+  --font-label: 'Manrope', 'DM Sans', Helvetica, sans-serif;
+
+  /* Premium shadows (multi-layer) */
+  --shadow-card:
+    0 1px 2px rgba(15, 41, 32, 0.04),
+    0 4px 8px rgba(15, 41, 32, 0.04),
+    0 12px 24px rgba(15, 41, 32, 0.06),
+    0 24px 48px rgba(15, 41, 32, 0.04);
+  --shadow-card-hover:
+    0 2px 4px rgba(15, 41, 32, 0.04),
+    0 8px 16px rgba(15, 41, 32, 0.06),
+    0 20px 40px rgba(15, 41, 32, 0.08),
+    0 32px 64px rgba(15, 41, 32, 0.06);
+
+  /* Noise texture (inline SVG for tactile dark surfaces) */
+  --noise-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+
+  /* Transition timing */
+  --ease-premium: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-hover: 450ms;
+}
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--bark);
+  background: linear-gradient(180deg, #F5F2EC 0%, #F0EBE1 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--forest);
+}
+
+/* Dark section selection highlight */
+.dark-section ::selection {
+  background: rgba(200, 165, 90, 0.4);
+  color: #fff;
+}
+
+/* Section divider -- thin amber rule between sections */
+.section-divider {
+  width: 100%;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 165, 90, 0.3), transparent);
+  margin: 0 auto;
+  border: none;
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-bright));
+  z-index: 9999;
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Global reduced-motion: disable all transitions/animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile typography floor: body text never below 15px */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* Ensure touch targets are at least 44px for interactive elements on mobile.
+   Only target block-level / standalone interactive elements, not inline links. */
+@media (max-width: 768px) {
+  button,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    min-height: 44px;
+  }
+}

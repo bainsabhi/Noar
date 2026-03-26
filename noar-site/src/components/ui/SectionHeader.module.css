@@ -1,0 +1,77 @@
+.header.center {
+  text-align: center;
+}
+
+.header.left {
+  text-align: left;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.8vw, 46px);
+  letter-spacing: -0.01em;
+  color: var(--forest);
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.95;
+  color: var(--bark-light);
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+.left .description {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    margin-bottom: 14px;
+  }
+
+  .title {
+    margin-bottom: 18px;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+}
+
+/* Light variant for dark backgrounds */
+.light .title {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.light .description {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  .description {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+}

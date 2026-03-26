@@ -1,0 +1,405 @@
+.contact {
+  padding: 180px 12%;
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Noise texture on dark contact section */
+.contact::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise-texture);
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200, 165, 90, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Left side ---- */
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+.description {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 440px;
+  margin-bottom: 48px;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactLabel {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contactValue {
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s;
+}
+
+a.contactValue:hover {
+  color: var(--amber);
+}
+
+/* ---- Right side / Form ---- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  transition: all 0.3s var(--ease-premium);
+  transform-origin: left top;
+  z-index: 1;
+}
+
+/* Float label up on focus or when input has value */
+.field input:focus ~ label,
+.field textarea:focus ~ label,
+.field select:focus ~ label,
+.field input:not(:placeholder-shown) ~ label,
+.field textarea:not(:placeholder-shown) ~ label,
+.field .hasValue ~ label,
+.field select:not([value=""]) ~ label {
+  top: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 22px 18px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  transition: border-color var(--duration-hover), background var(--duration-hover);
+  outline: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: transparent;
+}
+
+.field input:focus::placeholder,
+.field textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--amber);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: -2px;
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+.field select option {
+  background: var(--forest);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: var(--amber);
+  color: var(--forest);
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--duration-hover) var(--ease-premium);
+}
+
+.submit:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+.submit:hover {
+  background: var(--amber-bright);
+  transform: translateY(-1px);
+  letter-spacing: 0.2em;
+}
+
+.submit:active {
+  transform: translateY(0);
+}
+
+.arrow {
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.submit:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ---- Thank You state ---- */
+
+.thankYou {
+  text-align: center;
+  padding: 80px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.checkmark {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--forest);
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.thankYou h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 12px;
+}
+
+.thankYou p {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .contactDetails {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 100px 6%;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .contactDetails {
+    flex-direction: column;
+  }
+
+  .submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .field textarea {
+    min-height: 130px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .contactValue {
+    font-size: 16px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 64px 5%;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .submit {
+    padding: 16px 24px;
+    font-size: 11px;
+    min-height: 48px;
+  }
+
+  .thankYou {
+    padding: 48px 20px;
+  }
+
+  .thankYou h3 {
+    font-size: 26px;
+  }
+
+  .thankYou p {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submit {
+    transition: none;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    transition: none;
+  }
+
+  .field label {
+    transition: none;
+  }
+}
